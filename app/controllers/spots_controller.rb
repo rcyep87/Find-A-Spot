@@ -9,4 +9,18 @@ class SpotsController < ApplicationController
     end
   end
 
+  def show
+    if Spot.exists?(params[:id])
+      spot = Spot.find(params[:id])
+      render json: spot.to_json, status: 200
+    else
+      render json: { error_msg: "This spot does not exist in the database!", id: params[:id] }.to_json, status: 404
+    end
+  end
+
+  # def update
+  #   spot_update = Spot.find(params[:restaurant_id])
+  #   spot_update.
+  # end
+
 end
