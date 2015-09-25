@@ -19,13 +19,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    if User.exists?(params[:email])
-      render json: { error_msg: "User with email: #{params[:email]} already exists!" }, status: 404
+    if User.exists?(email: params[:email])
+      render json: { error_msg: "User with email: #{params[:email]} already exists!" }, status: 404 #check to see if this is correct error code
     else
       new_user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email],
                           password: params[:password], profile: params[:profile])
-      new_user.save!
-      render json: new_user.to_json, status: 200
+      if new_user.save
+        render json: new_user.to_json, status: 200
+      else
+        render json: { error_msg: "You must provide a First and Last name!" }, status: 404 #check to see what the correct error code is
+      end
     end
   end
 
