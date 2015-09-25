@@ -8,4 +8,13 @@ class UsersController < ApplicationController
       render json: users.to_json, status: 200
     end
   end
+
+  def show
+    if User.exists?(params[:id])
+      user = User.find(params[:id])
+      render json: user.to_json, status: 200
+    else
+      render json: { error_msg: "This user does not exist!" }, status: 404
+    end
+  end
 end
