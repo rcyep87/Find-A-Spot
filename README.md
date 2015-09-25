@@ -1,7 +1,8 @@
-== README
+# Find A Spot API
+This README describes how to interact with the Find A Spot API. The API is hosted by the trusted service Heroku and has been built off of Ruby on Rails.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Routes
+
 
 Things you may want to cover:
 
