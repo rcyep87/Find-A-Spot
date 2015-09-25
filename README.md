@@ -2,8 +2,17 @@
 This README describes how to interact with the Find A Spot API. The API is hosted by the trusted service Heroku and has been built off of Ruby on Rails.
 
 ## To Interact with the API
-* <tt>GET</tt> request to <tt>http://find-a-spot.herokuapp.com/restaurants</tt> will display all the available restaurants a user can go to that have restaurants participating with our service.
-* <tt>GET</tt> to <tt>http://find-a-spot.herokuapp.com/restaurants/:id</tt> will show a specific restaurant name. If you choose an <tt>:id</tt> that doesn't exist in the database, it will render an error.
-* <tt>GET</tt> to <tt>http://find-a-spot.herokuapp.com/restaurants/:restaurant_id/spots</tt> displays all the spots belonging to a specific restaurant. If you choose an <tt>:restaurant_id</tt> that doesn't exist in the database, it will render an error.
-* <tt>GET</tt> to <tt>http://find-a-spot.herokuapp.com/restaurants/:restaurant_id/spots/:id</tt> only shows a single spot belonging to a specific restaurant. If you choose an <tt>:restaurant_id</tt> and/or <tt>:id</tt> that doesn't exist in the database, it will render an error.
-* <tt>PUT</tt> request to <tt>http://find-a-spot.herokuapp.com/restaurants/:restaurant_id/spots/:id</tt> with the params being <tt>/:id</tt>, <tt>/:available</tt> & <tt>/:user_id</tt>. <tt>/:id</tt> equates to the parking spot number, <tt>/:available</tt> equates to availability and <tt>/:user_id</tt> equates to the user who has made the reservation.
+* `GET` request to `http://find-a-spot.herokuapp.com/restaurants` will display all the available restaurants a user can go to that have restaurants participating with our service.
+* `GET` to `http://find-a-spot.herokuapp.com/restaurants/:id` will show a specific restaurant name. If you choose an `:id` that doesn't exist in the database, it will render an error.
+* `GET` to `http://find-a-spot.herokuapp.com/restaurants/:restaurant_id/spots` displays all the spots belonging to a specific restaurant. If you choose an `:restaurant_id` that doesn't exist in the database, it will render an error.
+* `GET` to `http://find-a-spot.herokuapp.com/restaurants/:restaurant_id/spots/:id` only shows a single spot belonging to a specific restaurant. If you choose an `:restaurant_id` and/or `:id` that doesn't exist in the database, it will render an error.
+* `PUT`request to `http://find-a-spot.herokuapp.com/restaurants/:restaurant_id/spots/:id` with the params being 
+
+```
+	{ id: integer,
+	available: boolean,
+	user_id: integer }
+```
+> * `:id` equates to the parking spot number 
+> * `:available` equates to availability of the parking spot
+> * `:user_id` equates to the specific user who has made the parking spot reservation.
