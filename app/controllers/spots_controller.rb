@@ -18,9 +18,15 @@ class SpotsController < ApplicationController
     end
   end
 
-  # def update
-  #   spot_update = Spot.find(params[:restaurant_id])
-  #   spot_update.
-  # end
+  def update
+    if Spot.exists?(params[:id])
+      spot_update = Spot.find(params[:id])
+      spot_update.available = params.fetch(:available, spot_update.available)
+      spot_update.user_id   = params.fetch(:user_id  , spot_update.user_id)
+      render json: spot_update.to_json, status: 200
+    else
+      render json: { error_msg: "You're trying to update a parking spot that doesn't exist in the database!", id: params[:id] }, status: 404
+    end
+  end
 
 end
