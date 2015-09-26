@@ -20,3 +20,11 @@ This README describes how to interact with the Find A Spot API. The API is hoste
 > * `:id` equates to the parking spot number 
 > * `:available` equates to availability of the parking spot
 > * `:user_id` equates to the specific user who has made the parking spot reservation.
+
+#### Parking Spot Assignments
+
+Restaurant | Parking Spot #'s
+-----------|-----------------
+ Hopdoddy  |        1-8
+ Hommeslice|        9-16
+ Turf-N-Surf|       17-24  
