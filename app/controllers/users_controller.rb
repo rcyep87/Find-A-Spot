@@ -22,15 +22,28 @@ class UsersController < ApplicationController
     if User.exists?(email: params[:email])
       render json: { error_msg: "User with email: #{params[:email]} already exists!" }, status: 404 #check to see if this is correct error code
     else
-      new_user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email],
-                          password: params[:password], profile: params[:profile])
-      if new_user.save
-        render json: new_user.to_json, status: 200
-      elsif params[:first_name].empty? || params[:first_name].nil?
-        render json: { error_msg: "You must provide a first name!" }, status: 404 #check to see what the correct error code is
+      if params[:first_name].empty? || params[:first_name].nil?
+        render json: { error_msg: "You must provide a first name!" }, status: 500 #check to see what the correct error code is
       elsif params[:last_name].empty? || params[:last_name].nil?
-        render json: { error_msg: "You must provide a last name!" }, status: 404 #check to see what the correct error code is
+        render json: { error_msg: "You must provide a last name!" }, status: 500 #check to see what the correct error code is
+      # elsif (params[:first_name].empty? || params[:first_name].nil?) && (params[:last_name].empty? || params[:last_name].nil?)
+      #   render json: { error_msg: "You must provide both a first name and last name!" }, status: 500
+      else
+        new_user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email],
+                            password: params[:password], profile: params[:profile])
+        new_user.save!
+        render json: new_user.to_json, status: 200
       end
+
+      # new_user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email],
+      #                     password: params[:password], profile: params[:profile])
+      # new_user.save!
+      # render json: new_user.to_json, status: 200
+      # elsif params[:first_name].empty? || params[:first_name].nil?
+      #   render json: { error_msg: "You must provide a first name!" }, status: 500 #check to see what the correct error code is
+      # elsif params[:last_name].empty? || params[:last_name].nil?
+      #   render json: { error_msg: "You must provide a last name!" }, status: 500 #check to see what the correct error code is
+      # end
     end
   end
 
