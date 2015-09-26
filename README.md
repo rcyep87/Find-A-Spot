@@ -9,7 +9,7 @@ This README describes how to interact with the Find A Spot API. The API is hoste
 * `GET` to `http://find-a-spot.herokuapp.com/restaurants/:id` will show a specific restaurant name. If you choose an `:id` that doesn't exist in the database, it will render an error.
 * `GET` to `http://find-a-spot.herokuapp.com/restaurants/:restaurant_id/spots` displays all the spots belonging to a specific restaurant. If you choose an `:restaurant_id` that doesn't exist in the database, it will render an error.
 * `GET` to `http://find-a-spot.herokuapp.com/restaurants/:restaurant_id/spots/:id` only shows a single spot belonging to a specific restaurant. If you choose an `:restaurant_id` and/or `:id` that doesn't exist in the database, it will render an error.
-* `PUT`request to `http://find-a-spot.herokuapp.com/restaurants/:restaurant_id/spots/:id` with the params being 
+* `PUT`request to `http://find-a-spot.herokuapp.com/restaurants/:restaurant_id/spots/:id` allows you to **update** the availability of a parking spot. The params are 
 
 ```
 	{ id: integer,
