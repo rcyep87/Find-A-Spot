@@ -26,11 +26,12 @@ class UsersController < ApplicationController
                           password: params[:password], profile: params[:profile])
       if new_user.save
         render json: new_user.to_json, status: 200
-      else
-        render json: { error_msg: "You must provide a First and Last name!" }, status: 404 #check to see what the correct error code is
+      elsif params[:first_name].empty? || params[:first_name].nil?
+        render json: { error_msg: "You must provide a first name!" }, status: 404 #check to see what the correct error code is
+      elsif params[:last_name].empty? || params[:last_name].nil?
+        render json: { error_msg: "You must provide a last name!" }, status: 404 #check to see what the correct error code is
       end
     end
   end
-
 
 end
