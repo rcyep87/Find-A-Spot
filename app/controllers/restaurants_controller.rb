@@ -3,8 +3,8 @@ class RestaurantsController < ApplicationController
   def index #displays all restaurants
     # restaurants = Restaurant.all
     # render json: restaurants.to_json, status: 200
-    spots = Restaurant.all
-    render json: spots.to_json(:include => :spots), status: 200
+    restaurants = Restaurant.all
+    render json: restaurants.to_json(:include => :spots), status: 200
   end
 
   def show #displays a specific restaurant
