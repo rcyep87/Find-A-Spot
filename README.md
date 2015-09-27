@@ -31,5 +31,6 @@ This README describes how to interact with the Find A Spot API. The API is hoste
 | 4 |       Black Star Co-Op      |      25-32    |
 | 5 |        Torchy's Tacos       |      33-40    |
 | 6 |           Contigo           |      41-48    |
-
+| 7 |          Easy Tiger         |      49-56    |
+| 8 |           Via 313           |      57-64    |
  
