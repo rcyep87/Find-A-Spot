@@ -23,8 +23,13 @@ This README describes how to interact with the Find A Spot API. The API is hoste
 
 #### Parking Spot Assignments
 
-Restaurant | Parking Spot #'s
------------|-----------------
- Hopdoddy  |        1-8
- Hommeslice|        9-16
- Turf-N-Surf|       17-24  
+| id |         Restaurant       | Parking Spot #'s |
+|:------------- |:---------------:| -------------:|
+| 1 |          Hopdoddy           |      1-8      |
+| 2 |          Homeslice          |      9-16     |
+| 3 |         Turf-N-Surf         |      17-24    |
+| 4 |       Black Star Co-Op      |      25-32    |
+| 5 |        Torchy's Tacos       |      33-40    |
+| 6 |           Contigo           |      41-48    |
+
+ 
