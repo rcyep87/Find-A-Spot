@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   end
   resources :spots
   root 'restaurants#index'
-  match '*not_found_route', to: 'application#not_found', via: [:get, :post, :put, :delete]
+  match '*not_found_route', to: 'application#options', via: [:options]
 end
